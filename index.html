@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sorteador de números: escolha a quantidade, o intervalo e se os números podem se repetir." />
+  <title>Sorteador de Números</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <span class="logo" aria-hidden="true">#</span>
+      <h1>Sorteador de Números</h1>
+    </div>
+  </header>
+
+  <main class="container main">
+    <!-- Coluna 1: explicação -->
+    <section class="about" aria-labelledby="about-title">
+      <p class="overline">Como funciona</p>
+      <h2 id="about-title">Sorteios rápidos, justos e sem complicação</h2>
+      <p class="lead">
+        Use o sorteador para rifas, brincadeiras, escolha de vencedores ou qualquer
+        situação em que você precise de números aleatórios.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <strong>Defina a quantidade</strong>
+          <span>Quantos números você quer sortear de uma vez.</span>
+        </li>
+        <li>
+          <strong>Escolha o intervalo</strong>
+          <span>Informe o menor e o maior número possíveis. Os dois entram no sorteio.</span>
+        </li>
+        <li>
+          <strong>Decida sobre repetições</strong>
+          <span>Marque “Não repetir número” para que cada número saia só uma vez.</span>
+        </li>
+        <li>
+          <strong>Clique em Sortear</strong>
+          <span>Os números aparecem logo abaixo. Pode sortear de novo quantas vezes quiser.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Coluna 2: formulário + resultado -->
+    <section class="draw" aria-labelledby="draw-title">
+      <h2 id="draw-title" class="draw-title">Quero sortear</h2>
+
+      <form id="draw-form" class="form" novalidate>
+        <div class="field field-full">
+          <label for="quantity">Quantidade de números</label>
+          <input id="quantity" name="quantity" type="number" inputmode="numeric" min="1" max="100" step="1" value="1" required />
+        </div>
+
+        <div class="field">
+          <label for="min">Mínimo</label>
+          <input id="min" name="min" type="number" inputmode="numeric" step="1" value="1" required />
+        </div>
+
+        <div class="field">
+          <label for="max">Máximo</label>
+          <input id="max" name="max" type="number" inputmode="numeric" step="1" value="100" required />
+        </div>
+
+        <label class="switch field-full" for="no-repeat">
+          <input id="no-repeat" name="noRepeat" type="checkbox" role="switch" checked />
+          <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+          <span class="switch-label">Não repetir número</span>
+        </label>
+
+        <button id="draw-button" class="button field-full" type="submit">
+          <span class="button-text">Sortear</span>
+        </button>
+      </form>
+
+      <!-- Mensagens de erro/sucesso: anunciadas por leitores de tela -->
+      <p id="message" class="message" role="status" aria-live="polite" hidden></p>
+
+      <div class="result" aria-labelledby="result-title">
+        <div class="result-header">
+          <h3 id="result-title">Resultado</h3>
+          <span id="result-meta" class="result-meta"></span>
+        </div>
+        <ul id="result-list" class="result-list" aria-live="polite" aria-busy="false">
+          <li class="result-empty">Os números sorteados vão aparecer aqui.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Desafio Rocketseat · Sorteador de Números</p>
+    </div>
+  </footer>
+</body>
+</html>
